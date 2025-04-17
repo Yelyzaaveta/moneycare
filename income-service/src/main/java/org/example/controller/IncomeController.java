@@ -1,6 +1,8 @@
-package org.example;
+package org.example.controller;
 
 import jakarta.validation.Valid;
+import org.example.service.IncomeService;
+import org.example.dto.IncomeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

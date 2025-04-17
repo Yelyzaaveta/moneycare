@@ -1,5 +1,4 @@
-package org.example;
-
+package org.example.dto;
 
 import org.example.validators.CurrencyConstraint;
 import org.example.validators.OneWordConstraint;

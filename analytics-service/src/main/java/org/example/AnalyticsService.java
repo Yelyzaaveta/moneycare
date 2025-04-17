@@ -53,7 +53,7 @@ public class AnalyticsService {
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
 
         if (totalExpense.compareTo(BigDecimal.ZERO) == 0) {
-            return Map.of(); // Повертаємо пусту мапу, якщо загальні витрати 0
+            return Map.of();
         }
 
         return expenses.stream()

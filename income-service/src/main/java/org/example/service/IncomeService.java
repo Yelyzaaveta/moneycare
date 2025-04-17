@@ -1,4 +1,8 @@
-package org.example;
+package org.example.service;
+import org.example.model.IncomeModel;
+import org.example.mapper.IncomeMapper;
+import org.example.repository.IncomeRepository;
+import org.example.dto.IncomeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,13 +23,13 @@ public class IncomeService {
     }
 
     public IncomeDTO getIncomeById(Long id) {
-        Optional<Income> income = incomeRepository.findById(id);
+        Optional<IncomeModel> income = incomeRepository.findById(id);
         return income.map(IncomeMapper::toDTO).orElse(null);
     }
 
     public IncomeDTO saveIncome(IncomeDTO incomeDTO) {
-        Income income = IncomeMapper.toModel(incomeDTO);
-        Income savedIncome = incomeRepository.save(income);
+        IncomeModel income = IncomeMapper.toModel(incomeDTO);
+        IncomeModel savedIncome = incomeRepository.save(income);
         return IncomeMapper.toDTO(savedIncome);
     }
 
@@ -34,13 +38,13 @@ public class IncomeService {
     }
 
     public IncomeDTO updateIncome(Long id, IncomeDTO updatedIncomeDTO) {
-        Optional<Income> existingIncome = incomeRepository.findById(id);
+        Optional<IncomeModel> existingIncome = incomeRepository.findById(id);
         if (existingIncome.isPresent()) {
-            Income income = existingIncome.get();
+            IncomeModel income = existingIncome.get();
             income.setSource(updatedIncomeDTO.getSource());
             income.setCurrency(updatedIncomeDTO.getCurrency());
             income.setAmount(updatedIncomeDTO.getAmount());
-            Income updatedIncome = incomeRepository.save(income);
+            IncomeModel updatedIncome = incomeRepository.save(income);
             return IncomeMapper.toDTO(updatedIncome); // використовуємо IncomeMapper для маппінгу
         }
         return null;

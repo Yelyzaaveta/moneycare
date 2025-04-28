@@ -13,6 +13,14 @@ import java.util.List;
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
+/*
+  @author Orynchuk
+  @project micro
+  @class ServiceTests
+  @version 1.0.0
+  @since 24.04.2025 - 16.57
+*/
+
 @DataJpaTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class RepositoryTests {

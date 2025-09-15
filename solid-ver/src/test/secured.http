@@ -1,0 +1,9 @@
+### GET ALL INCOMES
+GET http://localhost:8087/api/v1/incomes
+Authorization: Basic YWRtaW46YWRtaW4=
+Accept: application/json
+
+### GET ALL INCOMES bad password
+GET http://localhost:8087/api/v1/incomes
+Authorization: Basic admin:user
+Accept: application/json

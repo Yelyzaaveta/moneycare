@@ -8,6 +8,13 @@ public class IncomeRepository {
     private final Map<Long, Income> store = new HashMap<>();
     private long counter = 1;
 
+    public IncomeRepository() {
+        // початкові дані
+        save(new Income(null, "Salary", "USD", "1000"));
+        save(new Income(null, "Freelance", "EUR", "500"));
+        save(new Income(null, "Gift", "UAH", "2000"));
+    }
+
     public List<Income> findAll() {
         return new ArrayList<>(store.values());
     }

@@ -1,14 +1,14 @@
 ### GET All
-GET http://localhost:8087/incomes
+GET http://localhost:8087/api/v1/incomes
 
 ### GET FIRST
-GET http://localhost:8087/incomes/1
+GET http://localhost:8087/api/v1/incomes/1
 
 ### DELETE FIRST
-DELETE http://localhost:8087/incomes/1
+DELETE http://localhost:8087/api/v1/incomes/1
 
 ### CREATE NEW INCOME
-POST http://localhost:8087/incomes
+POST http://localhost:8087/api/v1/incomes
 Content-Type: application/json
 
 {
@@ -18,7 +18,7 @@ Content-Type: application/json
 }
 
 ### UPDATE INCOME
-PUT http://localhost:8087/incomes/1
+PUT http://localhost:8087/api/v1/incomes/2
 Content-Type: application/json
 
 {

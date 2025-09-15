@@ -1,0 +1,28 @@
+### GET All
+GET http://localhost:8087/incomes
+
+### GET FIRST
+GET http://localhost:8087/incomes/1
+
+### DELETE FIRST
+DELETE http://localhost:8087/incomes/1
+
+### CREATE NEW INCOME
+POST http://localhost:8087/incomes
+Content-Type: application/json
+
+{
+  "source": "Salary",
+  "currency": "UAN",
+  "amount": "200"
+}
+
+### UPDATE INCOME
+PUT http://localhost:8087/incomes/1
+Content-Type: application/json
+
+{
+  "source": "Salary",
+  "currency": "UAN",
+  "amount": "999"
+}

@@ -5,6 +5,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/*
+  @author Orynchuk
+  @project moneycare
+  @class IncomeController
+  @version 1.0.0
+  @since 15.09.2025 - 14.25
+*/
+
 @RestController
 @RequestMapping("/api/v1/incomes")
 public class IncomeController {
@@ -32,7 +40,8 @@ public class IncomeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Income> update(@PathVariable Long id, @RequestBody Income income) {
+    public ResponseEntity<Income> update(@PathVariable("id") Long id, @RequestBody Income income)
+    {
         return service.update(id, income)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());

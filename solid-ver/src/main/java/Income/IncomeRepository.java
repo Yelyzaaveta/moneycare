@@ -1,6 +1,14 @@
 package Income;
-import org.springframework.stereotype.Repository;
 
+/*
+  @author Orynchuk
+  @project moneycare
+  @class IncomeRepository
+  @version 1.0.0
+  @since 15.09.2025 - 14.25
+*/
+
+import org.springframework.stereotype.Repository;
 import java.util.*;
 
 @Repository
@@ -10,9 +18,9 @@ public class IncomeRepository {
 
     public IncomeRepository() {
         // початкові дані
-        save(new Income(null, "Salary", "USD", "1000"));
-        save(new Income(null, "Freelance", "EUR", "500"));
-        save(new Income(null, "Gift", "UAH", "2000"));
+        save(new Income(1L, "Salary", "USD", "1000"));
+        save(new Income(2L, "Freelance", "EUR", "500"));
+        save(new Income(3L, "Gift", "UAH", "2000"));
     }
 
     public List<Income> findAll() {

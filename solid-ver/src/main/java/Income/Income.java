@@ -1,5 +1,13 @@
 package Income;
 
+/*
+  @author Orynchuk
+  @project moneycare
+  @class Income
+  @version 1.0.0
+  @since 15.09.2025 - 14.25
+*/
+
 public class Income {
     private Long id;
     private String source;

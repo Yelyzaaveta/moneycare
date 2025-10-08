@@ -1,4 +1,13 @@
 package Income;
+
+/*
+  @author Orynchuk
+  @project moneycare
+  @class IncomeService
+  @version 1.0.0
+  @since 15.09.2025 - 14.25
+*/
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

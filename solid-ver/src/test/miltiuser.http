@@ -1,0 +1,105 @@
+### CRUD: GET ALL
+### USER - OK
+GET http://localhost:8087/api/v1/incomes
+Authorization: Basic user user
+
+### ADMIN - OK
+GET http://localhost:8087/api/v1/incomes
+Authorization: Basic admin admin
+
+### SUPERADMIN - OK
+GET http://localhost:8087/api/v1/incomes
+Authorization: Basic superadmin superadmin
+
+### SUPERADMIN - WRONG PASSWORD
+GET http://localhost:8087/api/v1/incomes
+Authorization: Basic superadmin 67676
+
+### Без авторизації - FAIL
+GET http://localhost:8087/api/v1/incomes
+
+### CRUD: GET BY ID
+### USER - OK
+GET http://localhost:8087/api/v1/incomes/1
+Authorization: Basic user user
+
+### ADMIN - OK
+GET http://localhost:8087/api/v1/incomes/1
+Authorization: Basic admin admin
+
+### SUPERADMIN - OK
+GET http://localhost:8087/api/v1/incomes/1
+Authorization: Basic superadmin superadmin
+
+### Без авторизації - FAIL
+GET http://localhost:8087/api/v1/incomes/1
+
+
+### CRUD: POST
+### ADMIN - OK
+POST http://localhost:8087/api/v1/incomes
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "source": "Test income",
+  "amount": 1000
+}
+
+### USER - FAIL
+POST http://localhost:8087/api/v1/incomes
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "source": "Invalid income",
+  "amount": 1
+}
+
+
+### CRUD: PUT
+### ADMIN - OK
+PUT http://localhost:8087/api/v1/incomes/1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "source": "Updated income",
+  "currency": "UAN",
+  "amount": 1200
+}
+
+### USER - FAIL
+PUT http://localhost:8087/api/v1/incomes/1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "source": "Fail update",
+  "amount": 10
+}
+
+### ROLE ROUTES
+### USER route
+GET http://localhost:8087/api/v1/incomes/user
+Authorization: Basic user user
+
+### ADMIN route
+GET http://localhost:8087/api/v1/incomes/admin
+Authorization: Basic admin admin
+
+### SUPERADMIN route
+GET http://localhost:8087/api/v1/incomes/superadmin
+Authorization: Basic superadmin superadmin
+
+### SUPERADMIN route WRONG PASSWORD
+GET http://localhost:8087/api/v1/incomes/superadmin
+Authorization: Basic superadmin 67676
+
+### MIXED (admin or superadmin)
+GET http://localhost:8087/api/v1/incomes/mixed
+Authorization: Basic admin admin
+
+### MIXED fail for user
+GET http://localhost:8087/api/v1/incomes/mixed
+Authorization: Basic user user

@@ -31,7 +31,7 @@ public class IncomeController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('USER','ADMIN','SUPERADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','SUPERADMIN')")
     public ResponseEntity<Income> getById(@PathVariable Long id) {
         return service.getById(id)
                 .map(ResponseEntity::ok)

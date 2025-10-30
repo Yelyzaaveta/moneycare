@@ -32,7 +32,7 @@ public class IncomeController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole('ADMIN','SUPERADMIN')")
-    public ResponseEntity<Income> getById(@PathVariable Long id) {
+    public ResponseEntity<Income> getById(@PathVariable("id") Long id) {
         return service.getById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -55,7 +55,7 @@ public class IncomeController {
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('SUPERADMIN')")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
